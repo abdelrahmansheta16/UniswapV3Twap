@@ -17,5 +17,12 @@ contract UniswapV3Twap {
     ) {
         token0 = _token0;
         token1 = _token1;
+
+        address _pool = IUniswapV3Factory(_factory).getPool(
+            _token0,
+            _token1,
+            _fee
+        );
+        require(_pool != address(0), "pool doesn't exist");
     }
 }
