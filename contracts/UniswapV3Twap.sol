@@ -24,5 +24,7 @@ contract UniswapV3Twap {
             _fee
         );
         require(_pool != address(0), "pool doesn't exist");
+
+        pool = _pool;
     }
 }
