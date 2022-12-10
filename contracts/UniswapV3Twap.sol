@@ -33,5 +33,10 @@ contract UniswapV3Twap {
         uint128 amountIn,
         uint32 secondsAgo
     ) external view returns (uint amountOut) {
+        require(tokenIn == token0 || tokenIn == token1, "invalid token");
+
+        address tokenOut = tokenIn == token0 ? token1 : token0;
+
+        // (int24 tick, ) = OracleLibrary.consult(pool, secondsAgo);
     }
 }
