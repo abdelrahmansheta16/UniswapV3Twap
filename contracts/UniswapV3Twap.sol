@@ -38,5 +38,10 @@ contract UniswapV3Twap {
         address tokenOut = tokenIn == token0 ? token1 : token0;
 
         // (int24 tick, ) = OracleLibrary.consult(pool, secondsAgo);
+
+        // Code copied from OracleLibrary.sol, consult()
+        uint32[] memory secondsAgos = new uint32[](2);
+        secondsAgos[0] = secondsAgo;
+        secondsAgos[1] = 0;
     }
 }
