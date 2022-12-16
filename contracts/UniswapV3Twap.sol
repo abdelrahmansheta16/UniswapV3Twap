@@ -49,5 +49,7 @@ contract UniswapV3Twap {
         (int56[] memory tickCumulatives, ) = IUniswapV3Pool(pool).observe(
             secondsAgos
         );
+
+        int56 tickCumulativesDelta = tickCumulatives[1] - tickCumulatives[0];
     }
 }
