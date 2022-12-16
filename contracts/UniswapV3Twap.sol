@@ -43,5 +43,11 @@ contract UniswapV3Twap {
         uint32[] memory secondsAgos = new uint32[](2);
         secondsAgos[0] = secondsAgo;
         secondsAgos[1] = 0;
+
+        // int56 since tick * time = int24 * uint32
+        // 56 = 24 + 32
+        (int56[] memory tickCumulatives, ) = IUniswapV3Pool(pool).observe(
+            secondsAgos
+        );
     }
 }
