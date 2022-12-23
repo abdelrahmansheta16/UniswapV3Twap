@@ -66,5 +66,10 @@ contract UniswapV3Twap {
         so if tickCumulativeDelta < 0 and division has remainder, then round
         down
         */
+        if (
+            tickCumulativesDelta < 0 && (tickCumulativesDelta % secondsAgo != 0)
+        ) {
+            tick--;
+        }
     }
 }
