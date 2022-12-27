@@ -71,5 +71,12 @@ contract UniswapV3Twap {
         ) {
             tick--;
         }
+
+        amountOut = OracleLibrary.getQuoteAtTick(
+            tick,
+            amountIn,
+            tokenIn,
+            tokenOut
+        );
     }
 }
